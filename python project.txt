@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+s=input("enter the website name:")
+r=requests.get(s)
+print("response code:",r)
+m=input("enter the word to be searched:")
+soup=BeautifulSoup(str(r.text),'html.parser')
+print("the title of the page is: ",soup.title.string)
+count=0
+for m in soup:
+  count+=1
+print("THE TIMES THE WORD HAS BEEN REPEATED IS:", count)  
